@@ -32,6 +32,5 @@
 			})
 		}
 	</script>
-	<a href="javascript:" onclick="test()">点我</a>
 </body>
 </html>
