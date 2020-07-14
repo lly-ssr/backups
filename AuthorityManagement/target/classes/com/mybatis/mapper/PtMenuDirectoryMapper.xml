@@ -3,20 +3,15 @@
 <mapper namespace="com.dao.PtMenuDirectoryMapper">
   <resultMap id="BaseResultMap" type="com.bean.PtMenuDirectory">
     <id column="menu_id" jdbcType="INTEGER" property="menuId" />
-    <result column="dir_code" jdbcType="VARCHAR" property="dirCode" />
     <result column="dir_name" jdbcType="VARCHAR" property="dirName" />
     <result column="dir_level_number" jdbcType="INTEGER" property="dirLevelNumber" />
     <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
     <result column="isitem" jdbcType="CHAR" property="isitem" />
-    <result column="dir_order" jdbcType="INTEGER" property="dirOrder" />
-    <result column="status" jdbcType="CHAR" property="status" />
-    <result column="flag" jdbcType="CHAR" property="flag" />
     <result column="locale" jdbcType="VARCHAR" property="locale" />
     <result column="res_uuid" jdbcType="INTEGER" property="resUuid" />
   </resultMap>
   <sql id="Base_Column_List">
-    menu_id, dir_code, dir_name, dir_level_number, parent_id, isitem, dir_order, status, 
-    flag, locale, res_uuid
+    menu_id, dir_name, dir_level_number, parent_id, isitem, locale, res_uuid
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -29,23 +24,18 @@
     where menu_id = #{menuId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.bean.PtMenuDirectory">
-    insert into pt_menu_directory (menu_id, dir_code, dir_name, 
+    insert into pt_menu_directory (menu_id, dir_name, 
       dir_level_number, parent_id, isitem, 
-      dir_order, status, flag, locale, 
-      res_uuid)
-    values (#{menuId,jdbcType=INTEGER}, #{dirCode,jdbcType=VARCHAR}, #{dirName,jdbcType=VARCHAR}, 
+      locale, res_uuid)
+    values (#{menuId,jdbcType=INTEGER}, #{dirName,jdbcType=VARCHAR}, 
       #{dirLevelNumber,jdbcType=INTEGER}, #{parentId,jdbcType=VARCHAR}, #{isitem,jdbcType=CHAR}, 
-      #{dirOrder,jdbcType=INTEGER}, #{status,jdbcType=CHAR}, #{flag,jdbcType=CHAR}, #{locale,jdbcType=VARCHAR}, 
-      #{resUuid,jdbcType=INTEGER})
+      #{locale,jdbcType=VARCHAR}, #{resUuid,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.bean.PtMenuDirectory">
     insert into pt_menu_directory
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="menuId != null">
         menu_id,
-      </if>
-      <if test="dirCode != null">
-        dir_code,
       </if>
       <if test="dirName != null">
         dir_name,
@@ -59,15 +49,6 @@
       <if test="isitem != null">
         isitem,
       </if>
-      <if test="dirOrder != null">
-        dir_order,
-      </if>
-      <if test="status != null">
-        status,
-      </if>
-      <if test="flag != null">
-        flag,
-      </if>
       <if test="locale != null">
         locale,
       </if>
@@ -78,9 +59,6 @@
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="menuId != null">
         #{menuId,jdbcType=INTEGER},
-      </if>
-      <if test="dirCode != null">
-        #{dirCode,jdbcType=VARCHAR},
       </if>
       <if test="dirName != null">
         #{dirName,jdbcType=VARCHAR},
@@ -94,15 +72,6 @@
       <if test="isitem != null">
         #{isitem,jdbcType=CHAR},
       </if>
-      <if test="dirOrder != null">
-        #{dirOrder,jdbcType=INTEGER},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=CHAR},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=CHAR},
-      </if>
       <if test="locale != null">
         #{locale,jdbcType=VARCHAR},
       </if>
@@ -114,9 +83,6 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.bean.PtMenuDirectory">
     update pt_menu_directory
     <set>
-      <if test="dirCode != null">
-        dir_code = #{dirCode,jdbcType=VARCHAR},
-      </if>
       <if test="dirName != null">
         dir_name = #{dirName,jdbcType=VARCHAR},
       </if>
@@ -129,15 +95,6 @@
       <if test="isitem != null">
         isitem = #{isitem,jdbcType=CHAR},
       </if>
-      <if test="dirOrder != null">
-        dir_order = #{dirOrder,jdbcType=INTEGER},
-      </if>
-      <if test="status != null">
-        status = #{status,jdbcType=CHAR},
-      </if>
-      <if test="flag != null">
-        flag = #{flag,jdbcType=CHAR},
-      </if>
       <if test="locale != null">
         locale = #{locale,jdbcType=VARCHAR},
       </if>
@@ -149,14 +106,10 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.bean.PtMenuDirectory">
     update pt_menu_directory
-    set dir_code = #{dirCode,jdbcType=VARCHAR},
-      dir_name = #{dirName,jdbcType=VARCHAR},
+    set dir_name = #{dirName,jdbcType=VARCHAR},
       dir_level_number = #{dirLevelNumber,jdbcType=INTEGER},
       parent_id = #{parentId,jdbcType=VARCHAR},
       isitem = #{isitem,jdbcType=CHAR},
-      dir_order = #{dirOrder,jdbcType=INTEGER},
-      status = #{status,jdbcType=CHAR},
-      flag = #{flag,jdbcType=CHAR},
       locale = #{locale,jdbcType=VARCHAR},
       res_uuid = #{resUuid,jdbcType=INTEGER}
     where menu_id = #{menuId,jdbcType=INTEGER}

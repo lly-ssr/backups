@@ -43,14 +43,12 @@
 				clickToSelect : true,
 				uniqueId : "res_uuid",
 				columns : [ { checkbox : true,  visible: true }, 
-							{ field : 'dir_code', title : '菜单编号' },
+							{ field : 'menu_id', title : '菜单目录号' },
 							{ field : 'dir_name', title : '菜单名称' },
 							{ field : 'dir_level_number', title : '菜单级数' },
 							{ field : 'parent.dir_name', title : '父菜单名称' },
 							{ field : 'isitem', title : '明细否' ,formatter : ifFormatter},
-							{ field : 'dir_order', title : '菜单顺序号' },
 							{ field : 'locale', title : '语言类型' },
-							{ field : 'res_url', title : '资源路径' }
 						  ],
 				queryParams : function(params) {
 					var queryData = {

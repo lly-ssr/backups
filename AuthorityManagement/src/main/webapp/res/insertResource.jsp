@@ -23,27 +23,9 @@
 		<div class="panel-body nopadding">
 			<form id="resForm" method="post" class="form-bordered">
 				<div class="form-group">
-					<label class="col-sm-4 control-label">资源路径</label>
-					<div class="col-sm-8">
-						<input class="form-control" id="res_url" name="res_url" placeholder="请输入资源名称">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-4 control-label">菜单编号</label>
-					<div class="col-sm-8">
-						<input class="form-control" id="dir_code" name="dir_code" placeholder="请输入菜单编号">
-					</div>
-				</div>
-				<div class="form-group">
 					<label class="col-sm-4 control-label">菜单名称</label>
 					<div class="col-sm-8">
 						<input class="form-control" id="dir_name" name="dir_name" placeholder="请输入菜单名称">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-4 control-label">菜单级数</label>
-					<div class="col-sm-8">
-						<input class="form-control" id="dir_level_number" name="dir_level_number" placeholder="请输入菜单级数">
 					</div>
 				</div>
 				<div class="form-group">
@@ -65,12 +47,6 @@
 						<div class="radio icheck-silver icheck-inline">
 							<input type="radio" value="1" name="isitem" id="isitem2"><label for="isitem2">是</label>
 						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-4 control-label">菜单顺序号</label>
-					<div class="col-sm-8">
-						<input class="form-control" id="dir_order" name="dir_order" placeholder="请输入菜单顺序号">
 					</div>
 				</div>
 				<div class="form-group" style="text-align: center;">
