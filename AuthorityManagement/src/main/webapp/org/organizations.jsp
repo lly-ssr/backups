@@ -44,8 +44,6 @@
 				columns : [ { checkbox : true,  visible: true }, 
 							{ field : 'organ_code', title : '组织编码', width : 120, align : 'center' },
 							{ field : 'organ_name', title : '组织名称', width : 120, align : 'center' },
-							{ field : 'organ_type', title : '组织类型', width : 120, align : 'center' },
-							{ field : 'in_use', title : '是否在用', width : 120, align : 'center' },
 							{ field : 'parent.organ_name', title : '父组织名称', width : 120, align : 'center' },
 							{ field : 'shortname', title : '组织简称', width : 120, align : 'center' },
 							{ field : 'modtime', title : '修改时间' ,formatter : dateFormatter, width : 120, align : 'center'}

@@ -37,34 +37,7 @@
 					</div>
 				</div>
 				
-				<div class="form-group">
-					<label class="col-sm-4 control-label">组织类型</label>
-					<div class="col-sm-8">
-						<div class="radio icheck-silver icheck-inline">
-							<input type="radio" value="1" name="organ_type" id="organ_type1"><label for="organ_type1">1</label>
-						</div>
-						<div class="radio icheck-silver icheck-inline">
-							<input type="radio" value="2" name="organ_type" id="organ_type2"><label for="organ_type2">2</label>
-						</div>
-						<div class="radio icheck-silver icheck-inline">
-							<input type="radio" value="3" name="organ_type" id="organ_type3"><label for="organ_type3">3</label>
-						</div>
-						<div class="radio icheck-silver icheck-inline">
-							<input type="radio" value="4" name="organ_type" id="organ_type4"><label for="organ_type4">4</label>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-4 control-label">是否在用</label>
-					<div class="col-sm-8">
-						<div class="radio icheck-silver icheck-inline">
-							<input type="radio" value="Y" name="in_use" id="in_use1"><label for="in_use1">否</label>
-						</div>
-						<div class="radio icheck-silver icheck-inline">
-							<input type="radio" value="N" name="in_use" id="in_use2"><label for="in_use2">是</label>
-						</div>
-					</div>
-				</div>
+			
 			
 				<div class="form-group">
 					<label class="col-sm-4 control-label">父组织信息</label>

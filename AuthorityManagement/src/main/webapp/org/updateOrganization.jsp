@@ -36,23 +36,7 @@
 						<input class="form-control" id="organ_name" name="organ_name" placeholder="请输入组织名称">
 					</div>
 				</div>
-				<div class="form-group">
-					<label class="col-sm-4 control-label">组织类型</label>
-					<div class="col-sm-8">
-						<label class="radio-inline"><input type="radio" value="1" name="organ_type">1</label>
-						<label class="radio-inline"><input type="radio" value="2" name="organ_type">2</label>
-						<label class="radio-inline"> <input type="radio" value="3" name="organ_type">3</label>
-						<label class="radio-inline"> <input type="radio" value="4" name="organ_type">4</label>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-4 control-label">是否在用</label>
-					<div class="col-sm-8">
-						<label class="radio-inline"><input type="radio" value="Y" name="in_use">是</label>
-						<label class="radio-inline"> <input type="radio" value="N" name="in_use">否</label>
-					</div>
-				</div>
-			
+				
 				<div class="form-group">
 					<label class="col-sm-4 control-label">父组织信息</label>
 					<div class="col-sm-8">
