@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : aaaa
-Source Server Version : 50726
-Source Host           : 47.96.249.79:3306
+Source Server         : 徐吱eng
+Source Server Version : 50728
+Source Host           : localhost:3306
 Source Database       : coal
 
 Target Server Type    : MYSQL
-Target Server Version : 50726
+Target Server Version : 50728
 File Encoding         : 65001
 
-Date: 2020-07-14 11:57:45
+Date: 2020-07-14 16:56:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,14 +21,10 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `pt_menu_directory`;
 CREATE TABLE `pt_menu_directory` (
   `menu_id` int(50) unsigned NOT NULL AUTO_INCREMENT COMMENT '菜单目录id（树型结构层级编码）',
-  `dir_code` varchar(32) DEFAULT NULL COMMENT '菜单目录编号',
   `dir_name` varchar(100) DEFAULT NULL COMMENT '菜单目录名称',
   `dir_level_number` int(2) DEFAULT NULL COMMENT '菜单目录级数',
   `parent_id` varchar(32) DEFAULT NULL COMMENT '父目录id',
   `isitem` char(1) NOT NULL DEFAULT '1' COMMENT '明细否：0 非明细；1 明细',
-  `dir_order` int(9) DEFAULT NULL COMMENT '菜单目录顺序号',
-  `status` char(1) DEFAULT NULL COMMENT '是否删除：0 是；1 否',
-  `flag` char(1) DEFAULT NULL COMMENT '启/停状态：0 停用；1 启用',
   `locale` varchar(32) NOT NULL DEFAULT 'zh_CN' COMMENT '当前国际化标志',
   `res_uuid` int(50) DEFAULT NULL,
   PRIMARY KEY (`menu_id`)
@@ -61,37 +57,6 @@ CREATE TABLE `pt_organ` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for pt_r_role_organ
--- ----------------------------
-DROP TABLE IF EXISTS `pt_r_role_organ`;
-CREATE TABLE `pt_r_role_organ` (
-  `dutyid` int(50) unsigned NOT NULL AUTO_INCREMENT COMMENT '岗位ID',
-  `name` varchar(255) DEFAULT NULL COMMENT '岗位名称',
-  `organ_uuid` int(50) DEFAULT NULL COMMENT '组织ID',
-  `role_uuid` int(50) DEFAULT NULL COMMENT '角色ID',
-  PRIMARY KEY (`dutyid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='岗位表（角色和单位的挂接）';
-
--- ----------------------------
--- Records of pt_r_role_organ
--- ----------------------------
-
--- ----------------------------
--- Table structure for pt_r_user_duty_org
--- ----------------------------
-DROP TABLE IF EXISTS `pt_r_user_duty_org`;
-CREATE TABLE `pt_r_user_duty_org` (
-  `user_dutyid` int(50) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `user_uuid` int(50) DEFAULT NULL COMMENT '用户ID',
-  `dutyid` int(50) NOT NULL COMMENT '岗位ID',
-  PRIMARY KEY (`user_dutyid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户、岗位对应表';
-
--- ----------------------------
--- Records of pt_r_user_duty_org
--- ----------------------------
-
--- ----------------------------
 -- Table structure for pt_role
 -- ----------------------------
 DROP TABLE IF EXISTS `pt_role`;
@@ -120,6 +85,37 @@ CREATE TABLE `pt_role_res` (
 
 -- ----------------------------
 -- Records of pt_role_res
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for pt_r_role_organ
+-- ----------------------------
+DROP TABLE IF EXISTS `pt_r_role_organ`;
+CREATE TABLE `pt_r_role_organ` (
+  `dutyid` int(50) unsigned NOT NULL AUTO_INCREMENT COMMENT '岗位ID',
+  `name` varchar(255) DEFAULT NULL COMMENT '岗位名称',
+  `organ_uuid` int(50) DEFAULT NULL COMMENT '组织ID',
+  `role_uuid` int(50) DEFAULT NULL COMMENT '角色ID',
+  PRIMARY KEY (`dutyid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='岗位表（角色和单位的挂接）';
+
+-- ----------------------------
+-- Records of pt_r_role_organ
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for pt_r_user_duty_org
+-- ----------------------------
+DROP TABLE IF EXISTS `pt_r_user_duty_org`;
+CREATE TABLE `pt_r_user_duty_org` (
+  `user_dutyid` int(50) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `user_uuid` int(50) DEFAULT NULL COMMENT '用户ID',
+  `dutyid` int(50) NOT NULL COMMENT '岗位ID',
+  PRIMARY KEY (`user_dutyid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户、岗位对应表';
+
+-- ----------------------------
+-- Records of pt_r_user_duty_org
 -- ----------------------------
 
 -- ----------------------------
