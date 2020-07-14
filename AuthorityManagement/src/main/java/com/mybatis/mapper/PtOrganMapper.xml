@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.PtOrganMapper">
+  <resultMap id="BaseResultMap" type="com.bean.PtOrgan">
+    <id column="organ_uuid" jdbcType="INTEGER" property="organUuid" />
+    <result column="organ_code" jdbcType="VARCHAR" property="organCode" />
+    <result column="organ_name" jdbcType="VARCHAR" property="organName" />
+    <result column="organ_type" jdbcType="VARCHAR" property="organType" />
+    <result column="parent_uuid" jdbcType="INTEGER" property="parentUuid" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="modtime" jdbcType="TIMESTAMP" property="modtime" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="account_code" jdbcType="VARCHAR" property="accountCode" />
+    <result column="shortname" jdbcType="VARCHAR" property="shortname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    organ_uuid, organ_code, organ_name, organ_type, parent_uuid, status, modtime, description, 
+    account_code, shortname
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pt_organ
+    where organ_uuid = #{organUuid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pt_organ
+    where organ_uuid = #{organUuid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.bean.PtOrgan">
+    insert into pt_organ (organ_uuid, organ_code, organ_name, 
+      organ_type, parent_uuid, status, 
+      modtime, description, account_code, 
+      shortname)
+    values (#{organUuid,jdbcType=INTEGER}, #{organCode,jdbcType=VARCHAR}, #{organName,jdbcType=VARCHAR}, 
+      #{organType,jdbcType=VARCHAR}, #{parentUuid,jdbcType=INTEGER}, #{status,jdbcType=CHAR}, 
+      #{modtime,jdbcType=TIMESTAMP}, #{description,jdbcType=VARCHAR}, #{accountCode,jdbcType=VARCHAR}, 
+      #{shortname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.PtOrgan">
+    insert into pt_organ
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="organUuid != null">
+        organ_uuid,
+      </if>
+      <if test="organCode != null">
+        organ_code,
+      </if>
+      <if test="organName != null">
+        organ_name,
+      </if>
+      <if test="organType != null">
+        organ_type,
+      </if>
+      <if test="parentUuid != null">
+        parent_uuid,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="modtime != null">
+        modtime,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="accountCode != null">
+        account_code,
+      </if>
+      <if test="shortname != null">
+        shortname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="organUuid != null">
+        #{organUuid,jdbcType=INTEGER},
+      </if>
+      <if test="organCode != null">
+        #{organCode,jdbcType=VARCHAR},
+      </if>
+      <if test="organName != null">
+        #{organName,jdbcType=VARCHAR},
+      </if>
+      <if test="organType != null">
+        #{organType,jdbcType=VARCHAR},
+      </if>
+      <if test="parentUuid != null">
+        #{parentUuid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="modtime != null">
+        #{modtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="accountCode != null">
+        #{accountCode,jdbcType=VARCHAR},
+      </if>
+      <if test="shortname != null">
+        #{shortname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.PtOrgan">
+    update pt_organ
+    <set>
+      <if test="organCode != null">
+        organ_code = #{organCode,jdbcType=VARCHAR},
+      </if>
+      <if test="organName != null">
+        organ_name = #{organName,jdbcType=VARCHAR},
+      </if>
+      <if test="organType != null">
+        organ_type = #{organType,jdbcType=VARCHAR},
+      </if>
+      <if test="parentUuid != null">
+        parent_uuid = #{parentUuid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="modtime != null">
+        modtime = #{modtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="accountCode != null">
+        account_code = #{accountCode,jdbcType=VARCHAR},
+      </if>
+      <if test="shortname != null">
+        shortname = #{shortname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where organ_uuid = #{organUuid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.PtOrgan">
+    update pt_organ
+    set organ_code = #{organCode,jdbcType=VARCHAR},
+      organ_name = #{organName,jdbcType=VARCHAR},
+      organ_type = #{organType,jdbcType=VARCHAR},
+      parent_uuid = #{parentUuid,jdbcType=INTEGER},
+      status = #{status,jdbcType=CHAR},
+      modtime = #{modtime,jdbcType=TIMESTAMP},
+      description = #{description,jdbcType=VARCHAR},
+      account_code = #{accountCode,jdbcType=VARCHAR},
+      shortname = #{shortname,jdbcType=VARCHAR}
+    where organ_uuid = #{organUuid,jdbcType=INTEGER}
+  </update>
+</mapper>

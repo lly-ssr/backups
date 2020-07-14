@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.PtRoleResMapper">
+  <resultMap id="BaseResultMap" type="com.bean.PtRoleRes">
+    <id column="role_resid" jdbcType="INTEGER" property="roleResid" />
+    <result column="role_uuid" jdbcType="INTEGER" property="roleUuid" />
+    <result column="res_uuid" jdbcType="INTEGER" property="resUuid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    role_resid, role_uuid, res_uuid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pt_role_res
+    where role_resid = #{roleResid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pt_role_res
+    where role_resid = #{roleResid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.bean.PtRoleRes">
+    insert into pt_role_res (role_resid, role_uuid, res_uuid
+      )
+    values (#{roleResid,jdbcType=INTEGER}, #{roleUuid,jdbcType=INTEGER}, #{resUuid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.PtRoleRes">
+    insert into pt_role_res
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleResid != null">
+        role_resid,
+      </if>
+      <if test="roleUuid != null">
+        role_uuid,
+      </if>
+      <if test="resUuid != null">
+        res_uuid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleResid != null">
+        #{roleResid,jdbcType=INTEGER},
+      </if>
+      <if test="roleUuid != null">
+        #{roleUuid,jdbcType=INTEGER},
+      </if>
+      <if test="resUuid != null">
+        #{resUuid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.PtRoleRes">
+    update pt_role_res
+    <set>
+      <if test="roleUuid != null">
+        role_uuid = #{roleUuid,jdbcType=INTEGER},
+      </if>
+      <if test="resUuid != null">
+        res_uuid = #{resUuid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where role_resid = #{roleResid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.PtRoleRes">
+    update pt_role_res
+    set role_uuid = #{roleUuid,jdbcType=INTEGER},
+      res_uuid = #{resUuid,jdbcType=INTEGER}
+    where role_resid = #{roleResid,jdbcType=INTEGER}
+  </update>
+</mapper>

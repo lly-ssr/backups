@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >  
+<generatorConfiguration>  
+    <!-- <classPathEntry location="D:\rep\mysql\mysql-connector-java\5.1.19\mysql-connector-java-5.1.19.jar" /> -->  
+    <context id="DB2Tables" targetRuntime="MyBatis3">  
+        <commentGenerator>  
+            <property name="suppressAllComments" value="true" />  
+            <property name="suppressDate" value="true" />   
+        </commentGenerator>  
+  
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/coal?userUnicode=true&amp;characterEncoding=utf8" userId="root" password="lly" />  
+  
+        <javaTypeResolver>  
+            <property name="forceBigDecimals" value="false" />  
+            <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer true，把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal -->  
+        </javaTypeResolver>  
+  
+        <javaModelGenerator targetPackage="com.bean" targetProject="AuthorityManagement/src/main/java">  
+            <property name="enableSubPackages" value="true" />  
+            <property name="trimStrings" value="true" />  
+        </javaModelGenerator>  
+  
+        <sqlMapGenerator targetPackage="com.mybatis.mapper" targetProject="AuthorityManagement/src/main/java">  
+            <property name="enableSubPackages" value="false" />  
+        </sqlMapGenerator>  
+        <javaClientGenerator targetPackage="com.dao" targetProject="AuthorityManagement/src/main/java" type="XMLMAPPER">  
+            <property name="enableSubPackages" value="false" />  
+        </javaClientGenerator>  
+  
+        <table tableName="pt_menu_directory" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" selectByExampleQueryId="true" enableUpdateByExample="false">  
+            <!-- <generatedKey column="ID" sqlStatement="oracle" identity="true" /> -->  
+        </table>  
+        <table tableName="pt_organ" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" selectByExampleQueryId="true" enableUpdateByExample="false">  
+            <!-- <generatedKey column="ID" sqlStatement="oracle" identity="true" /> -->  
+        </table>  
+        <table tableName="pt_r_role_organ" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" selectByExampleQueryId="true" enableUpdateByExample="false">  
+            <!-- <generatedKey column="ID" sqlStatement="oracle" identity="true" /> -->  
+        </table> 
+        <table tableName="pt_r_user_duty_org" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" selectByExampleQueryId="true" enableUpdateByExample="false">  
+            <!-- <generatedKey column="ID" sqlStatement="oracle" identity="true" /> -->  
+        </table> 
+         <table tableName="pt_role" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" selectByExampleQueryId="true" enableUpdateByExample="false">  
+            <!-- <generatedKey column="ID" sqlStatement="oracle" identity="true" /> -->  
+        </table> 
+        <table tableName="pt_role_res" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" selectByExampleQueryId="true" enableUpdateByExample="false">  
+            <!-- <generatedKey column="ID" sqlStatement="oracle" identity="true" /> -->  
+        </table>
+        <table tableName="pt_user" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" selectByExampleQueryId="true" enableUpdateByExample="false">  
+            <!-- <generatedKey column="ID" sqlStatement="oracle" identity="true" /> -->  
+        </table> 
+    </context>  
+</generatorConfiguration> 
